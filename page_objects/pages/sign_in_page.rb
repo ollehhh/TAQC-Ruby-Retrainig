@@ -1,9 +1,9 @@
-class SignInPage < SitePrism::Page
+# frozen_string_literal: true
 
-  section :menu, MenuSection,'#top-menu'
+class SignInPage < SitePrism::Page
+  section :menu, MenuSection, '#top-menu'
 
   element :login_field, '#username'
   element :password_field, '#password'
   element :submit_btn, '#login-submit'
-
 end

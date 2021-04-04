@@ -1,17 +1,19 @@
+# frozen_string_literal: true
+
 feature 'Authentication tests' do
   before :all do
     random = Time.now.to_i.to_s
-    username = 'test_' + random
+    username = "test_#{random}"
     password = 'test1234'
-    firstname = 'test_'+ random
-    lastname = random + '_test'
+    firstname = "test_#{random}"
+    lastname = "#{random}_test"
     email = "test#{random}@test.org"
-    hash = {username: username, password: password, firstname: firstname, lastname: lastname, email: email}
-    File.open("test_data/user.json","w") {|f| f.write hash.to_json}
+    hash = { username: username, password: password, firstname: firstname, lastname: lastname, email: email }
+    File.open('test_data/user.json', 'w') { |f| f.write hash.to_json }
   end
 
   after :all do
-    File.delete("test_data/user.json")
+    File.delete('test_data/user.json')
   end
 
   before :each do
@@ -20,7 +22,7 @@ feature 'Authentication tests' do
   end
 
   scenario 'Can create new user' do
-    file = File.read("test_data/user.json")
+    file = File.read('test_data/user.json')
     file_data = JSON.parse(file)
 
     @home_page.menu.sign_up_link.click
@@ -40,7 +42,7 @@ feature 'Authentication tests' do
   end
 
   scenario 'User can sign in' do
-    file = File.read("test_data/user.json")
+    file = File.read('test_data/user.json')
     file_data = JSON.parse(file)
 
     @home_page.menu.sign_in_link.click
