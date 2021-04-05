@@ -2,7 +2,7 @@
 
 name: Static Code Analysis
 
-# Controls when the action will run. 
+# Controls when the action will run.
 on:
   # Triggers the workflow on push or pull request events but only for the master branch
   push:
@@ -28,11 +28,11 @@ jobs:
       # Runs a single command using the runners shell
       - name: Install Dependencies
         run: bundle install
-        
+
       # Runs a single command using the runners shell
       - name: Run RuboCop
         run: bundle exec rubocop --fail-level W
-        
+
       # Runs a single command using the runners shell
       - name: Run Reek
         run: bundle exec reek .
